@@ -9,11 +9,11 @@ Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
   config.vm.synced_folder "web", "/usr/share/nginx/html", type: "rsync", mount_options: ["-o", "uid=nginx", "-o", "gid=nginx", "--chmod=ug=rwX,o=rX"]
   config.vm.provision "shell", inline: <<-SHELL
-    sudo yum install -y epel-release
-    sudo yum install -y nginx
-    sudo systemctl enable nginx
-    sudo systemctl start nginx
-    sudo systemctl restart nginx
+    yum install -y epel-release
+    yum install -y nginx
+    systemctl enable nginx
+    systemctl start nginx
+    systemctl restart nginx
   SHELL
 
 end
